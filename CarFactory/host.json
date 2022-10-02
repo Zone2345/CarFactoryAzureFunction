@@ -1,11 +1,18 @@
 {
-    "version": "2.0",
-    "logging": {
-        "applicationInsights": {
-            "samplingSettings": {
-                "isEnabled": true,
-                "excludedTypes": "Request"
-            }
-        }
+  "version": "2.0",
+  "logging": {
+    "applicationInsights": {
+      "samplingSettings": {
+        "isEnabled": true,
+        "excludedTypes": "Request"
+      }
     }
+  },
+
+  "CosmosDb": {
+    "Account": "https://carfactory.documents.azure.com:443/",
+    "Key": "M185ElAWubc0I69CMP98jWX29ZxA9TD6wezDHLHucjHwwNY1Ijxx36mxbO4VCHPSkDYuCMesrMXIX4GzR1qgng==",
+    "DatabaseName": "carfactory",
+    "ContainerName": "Cars"
+  }
 }
