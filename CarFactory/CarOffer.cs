@@ -26,11 +26,11 @@ namespace CarFactory
             string color = req.Query["color"];
 
             log.LogInformation("C# HTTP trigger function processed a request.");
-            var manufactory = getDocument.FirstOrDefault(x => x.Manufacturer == name);
+            var manufactory = getDocument.FirstOrDefault(x => x.Manufacturer.ToLower() == name.ToLower());
             if (manufactory == null) return new OkObjectResult("Manufacturer " + name + " u are looking for does not exist!");
-            manufactory.Model = getDocument.FirstOrDefault(x => x.Model == model).Model;
+            manufactory.Model = getDocument.FirstOrDefault(x => x.Model.ToLower() == model.ToLower()).Model;
             if (manufactory == null) return new OkObjectResult("Model " + model + " u are looking for does not exist!");
-            var getOffer = getDocument.FirstOrDefault(x => x.Color == color);
+            var getOffer = getDocument.FirstOrDefault(x => x.Color.ToLower() == color.ToLower());
             if(getOffer == null) return new OkObjectResult("Color " + color + " u are looking for does not exist!");
             manufactory.Hp = getOffer.Hp;
             manufactory.Engine = getOffer.Engine;
